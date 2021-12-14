@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:overlay_test/widgets.dart';
+import 'package:overlay_test/k_strings.dart';
+import 'package:overlay_test/k_widgets.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -30,28 +31,31 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Name',
-                fillColor: Colors.teal.withOpacity(0.3),
-                filled: true,
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Name',
+                  fillColor: Colors.teal.withOpacity(0.3),
+                  filled: true,
+                ),
               ),
-            ),
-            SizedBox(height: 10.0,),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Age',
-                fillColor: Colors.teal.withOpacity(0.3),
-                filled: true,
+              SizedBox(height: 10.0,),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Age',
+                  fillColor: Colors.teal.withOpacity(0.3),
+                  filled: true,
+                ),
               ),
-            ),
-            SizedBox(height: 10.0,),
-            CountryPicker(),
-            ElevatedButton(onPressed: (){}, child: Text('Submit')),
-            SizedBox(height: 10.0,),
-          ]
+              SizedBox(height: 10.0,),
+              OverlayPicker(countries: ['Bangladesh', 'India', 'Pakistan']),
+              ElevatedButton(onPressed: (){}, child: Text('Submit')),
+              SizedBox(height: 10.0,),
+              Text(KStrings.agreement),
+            ]
+          ),
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
